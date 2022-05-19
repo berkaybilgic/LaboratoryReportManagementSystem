@@ -40,7 +40,7 @@ public class AdminPanelController {
         Page<Reports> list = reportsServices.reportToList(currentPage, pageSize);
 
         model.addAttribute("reports", list);
-        long pago = list.getTotalElements() / pageSize + 1;
+        long pago = (list.getTotalElements() / (pageSize + 1)) + 1;
         model.addAttribute("pago", pago);
         model.addAttribute("currentPage", currentPage);
         return "adminPanel";

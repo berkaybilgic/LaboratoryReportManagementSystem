@@ -35,7 +35,7 @@ public class LabTechniciansController {
         int pageSize = size.orElse(8);
         Page<LabTechnicians> list = labTechniciansService.labTechniciansToList(currentPage, pageSize);
         model.addAttribute("labtechician", list);
-        long pago = list.getTotalElements() / pageSize + 1;
+        long pago = (list.getTotalElements() / (pageSize + 1)) + 1;
         model.addAttribute("pago", pago);
         model.addAttribute("currentPage", currentPage);
         return "labTechiciansPage";

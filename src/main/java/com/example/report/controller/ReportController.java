@@ -75,11 +75,11 @@ public class ReportController {
     public String allReportPage(@RequestParam("page") Optional<Integer> page,
                                 @RequestParam("size") Optional<Integer> size, Model model) {
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int pageSize = size.orElse(9);
         Page<Reports> list = reportsServices.reportToList(currentPage, pageSize);
 
         model.addAttribute("reports", list);
-        long pago = list.getTotalElements() / pageSize + 1;
+        long pago = (list.getTotalElements() / (pageSize + 1)) + 1;
         model.addAttribute("pago", pago);
         model.addAttribute("currentPage", currentPage);
         return "allReportsPage";
@@ -99,17 +99,17 @@ public class ReportController {
                                     @RequestParam("size") Optional<Integer> size, Model model) {
 
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int pageSize = size.orElse(9);
         if (sort.equals("asc")) {
             Page<Reports> list = reportsServices.reportSortAscToList(currentPage, pageSize);
             model.addAttribute("reports", list);
-            long pago = list.getTotalElements() / pageSize + 1;
+            long pago = (list.getTotalElements() / (pageSize + 1)) + 1;
             model.addAttribute("pago", pago);
             model.addAttribute("currentPage", currentPage);
         } else if (sort.equals("dsc")) {
             Page<Reports> list = reportsServices.reportSortDscToList(currentPage, pageSize);
             model.addAttribute("reports", list);
-            long pago = list.getTotalElements() / pageSize + 1;
+            long pago = (list.getTotalElements() / (pageSize + 1)) + 1;
             model.addAttribute("pago", pago);
             model.addAttribute("currentPage", currentPage);
         }
