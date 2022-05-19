@@ -81,4 +81,6 @@ $ java -jar target/Report-0.0.1-SNAPSHOT.jar
 
 - **USER** kendi eklediği raporları görüntüleyebilir ve değiştirebilir ancak silemez.
 
+### Notes
+ - Search yaparken aramanın sonucu dönebilmesi için isim ve soyismin tam olarak doğru yazılması gereklidir.
 

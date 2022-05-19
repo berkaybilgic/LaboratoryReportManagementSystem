@@ -54,9 +54,9 @@
                     <h5 class="card-title"
                         th:text=" 'Hastanın Adı Soyadı: ' + ' ' + ${report. getPatientFirstName} + ' ' + ${report.getPatientLastName}"></h5>
                     <h6 class="card-subtitle mb-2 text-muted"
-                        th:text=" 'Hastaya Koyulan Tanı: ' + ' ' + ${report.getDiagnosticTitle}"></h6>
+                        th:text=" 'Hastaya Koyulan Tanı Başlığı: ' + ' ' + ${report.getDiagnosticTitle}"></h6>
                     <p class="card-text"
-                       th:text=" 'Hastaya Koyulan Tanı: ' + ' ' + ${report.getDiagnosticDetails}"></p>
+                       th:text=" 'Hastaya Koyulan Tanının Detayları: ' + ' ' + ${report.getDiagnosticDetails}"></p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"
