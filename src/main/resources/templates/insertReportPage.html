@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="kaybolanMesaj" th:if="${message}" th:text="${message}" th:class="${alertClass}" style="text-align: center;"/>
+<head th:replace="navbar :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:#edf5ef">
+<div th:replace="navbar :: navbar2"></div>
+<br>
+<div class="container">
+    <form action="#" method="post" th:action="@{/insertreport}" th:object="${report}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Hastanın adı: </label>
+            <input type="text" required th:field="*{patientFirstName}" class="form-control" id="formGroupExampleInput"
+                   placeholder="Hastanın Adını Giriniz" th:name="patientFirstName">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Hastanın soyadı: </label>
+            <input type="text" required th:field="*{patientLastName}" class="form-control" id="formGroupExampleInput2"
+                   placeholder="Hastanın Soyadını Giriniz" th:name="patientLastName">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Hastanın Kimlik Numarası: </label>
+            <input type="number" required minlength="7" maxlength="7" min="1000000" max="9999999" th:field="*{patientIdentificationNumber}"
+                   class="form-control" id="formGroupExampleInput3"
+                   placeholder="Hastanın Kimlik Numarasını Giriniz" th:name="patientIdentificationNumberi">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Hastaya Koyulan Tanı: </label>
+            <input type="text" required th:field="*{diagnosticTitle}" class="form-control" id="formGroupExampleInput4"
+                   placeholder="Hastaya Koyulan Tanı Başlığını Giriniz" th:name="diagnosticTitle">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Hastaya Koyulan Tanının Detaylı Açıklaması: </label>
+            <input type="text" required maxlength="255" th:field="*{diagnosticDetails}" class="form-control" id="formGroupExampleInput5"
+                   placeholder="Hastaya Koyulan Tanının Detaylı Açıklaması" th:name="diagnosticDetails">
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Rapor Veriliş Tarihi: </label>
+            <input type="date" required th:field="*{reportDate}" class="form-control" id="formGroupExampleInput6"
+                   placeholder="Example input" th:name="reportDate">
+        </div>
+
+        <div class="mb-3 form-group ">
+            <label for="formFile" class="form-label"> Hastanın Fotoğrafı </label>
+            <input class="form-control" th:name="file" type="file" id="formFile" accept=".jpg,.png">
+        </div>
+        <br><br>
+        <button class="btn btn-success" type="submit" th:name="action">Gönder</button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#kaybolanMesaj").fadeOut("slow", function () {
+                $("#kaybolanMesaj").remove();
+            });
+        }, 1500);
+    });
+</script>
+
+</body>
+</html>

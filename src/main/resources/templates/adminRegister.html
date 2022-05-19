@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="kaybolanMesaj" th:if="${message}" th:text="${message}" th:class="${alertClass}" style="text-align: center;"/>
+<head th:replace="navbar :: head">
+
+
+    <meta charset="UTF-8">
+    <title>Panel Ekranı</title>
+
+</head>
+<body style="background-color:#edf5ef">
+<div th:replace="navbar :: navbar2"></div>
+<br>
+<div class="container">
+    <form action="#" method="post" th:action="@{/adminregister}" th:object="${admin}">
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Kimlik Numarası </label>
+            <input type="number" required min="1000000" max="9999999" th:field="*{IdentificationNumber}"
+                   class="form-control" id="formGroupExampleInput"
+                   placeholder="Kimlik Numaranızı Giriniz" th:name="IdentificationNumber">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Ad </label>
+            <input type="text" required th:field="*{firstName}" class="form-control" id="formGroupExampleInput2"
+                   placeholder="Adınızı Giriniz" th:name="firstName">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Soyad </label>
+            <input type="text" required th:field="*{lastName}" class="form-control" id="formGroupExampleInput3"
+                   placeholder="Soyadınızı Giriniz" th:name="lastName">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Email </label>
+            <input type="email" required th:field="*{email}" class="form-control" id="formGroupExampleInput5"
+                   placeholder="Emailinizi Girin" th:name="email">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Kullanıcı Adı </label>
+            <input type="text" required th:field="*{userName}" class="form-control" id="formGroupExampleInput6"
+                   placeholder="Kullanıcı Adı Girin" th:name="userName">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput"> Şifre </label>
+            <input type="password" required minlength="8" th:field="*{password}" class="form-control"
+                   id="formGroupExampleInput7"
+                   placeholder="Şifrenizi Girin" th:name="password">
+        </div>
+        <br>
+        <button class="btn btn-success" type="submit" th:name="action">Gönder</button>
+    </form>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        setTimeout(function () {
+
+            $("#kaybolanMesaj").fadeOut("slow", function () {
+
+                $("#kaybolanMesaj").remove();
+
+            });
+
+        }, 1500);
+
+    });
+
+
+</script>
+
+</body>
+</html>

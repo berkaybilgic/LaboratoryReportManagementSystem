@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="navbar :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:#edf5ef">
+<div th:replace="navbar :: navbar2"></div>
+<br>
+<div class="container">
+    <br>
+    <div class="row">
+        <form th:action="@{/labtechicians/search}">
+            <div class="input-group">
+                <div class="col-10" style="padding-right: 6px">
+                    <input placeholder="Tekniker ismi ile arama yapılabilir" name="keyword" type="search" required id="form1" class="form-control" size="20"/>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Teknikerler İçinde Ara
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-3" th:each="labtechicians : ${labtechnician}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"
+                        th:text=" 'Teknikerin Adı: ' + ' ' + ${labtechicians.firstName} + ' ' + ${labtechicians.lastName}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"
+                        th:text=" 'Teknikerin Emaili: ' + ' ' + ${labtechicians.email}"></h6>
+                    <p class="card-text"
+                       th:text=" 'Teknikerin Kimlik Numarası: ' + ' ' + ${labtechicians.IdentificationNumber}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
