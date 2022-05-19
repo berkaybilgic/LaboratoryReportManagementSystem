@@ -41,7 +41,9 @@ Database connection için aşağıdaki alanları **application.properties** üze
 `spring.datasource.password=12345`
 
 ### Create Database
-`createdb -h localhost -p 5432 -U postgres reportdb`
+```sh 
+$ createdb -h localhost -p 5432 -U postgres reportdb
+```
 
 or 
 
